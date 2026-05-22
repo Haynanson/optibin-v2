@@ -1,7 +1,6 @@
-import type { OptimizationResult, Point, SEIConfig, SEIResult, SEIStatus } from '../types'
+import type { Point, SEIConfig, SEIResult, SEIStatus } from '../types'
 import {
   calculatePointOverlapRatio,
-  calculateSpacingValidity,
   findNearestNeighbor,
 } from './geo'
 
@@ -14,7 +13,7 @@ function getStatus(sei: number): SEIStatus {
 
 export function calculatePointSEI(
   point: Point,
-  allPoints: Point[],
+  _allPoints: Point[],
   config: SEIConfig,
   pointOverlapRatio: number,
   nearestDistance: number
@@ -167,7 +166,7 @@ export function identifyRedundantPoints(
 
 export function simulateOptimization(
   points: Point[],
-  results: SEIResult[],
+  _results: SEIResult[],
   config: SEIConfig,
   redundantIds: number[]
 ): { optimizedPoints: Point[]; optimizedResults: SEIResult[] } {

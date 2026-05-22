@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import AMapLoader from '@amap/amap-jsapi-loader'
 
 export interface MapMarker {
@@ -43,7 +43,7 @@ function markerHTML(name: string, sei: number | undefined): string {
   return `<div style="position:relative;width:32px;height:32px;cursor:pointer;"><img src="${ICON_URL}" width="32" height="32" onerror="this.onerror=null;this.src='${FALLBACK_URL}'" />${seiLabel}<span style="position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:10px;color:#333;background:rgba(255,255,255,.85);padding:1px 4px;border-radius:3px;pointer-events:none;">${name}</span></div>`
 }
 
-function idealPointHTML(reason: string, expectedSei: number): string {
+function idealPointHTML(_reason: string, expectedSei: number): string {
   return `<div style="position:relative;width:28px;height:28px;cursor:pointer;"><div style="width:28px;height:28px;border-radius:50%;background:#C4A882;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:14px;box-shadow:0 2px 6px rgba(0,0,0,.3);">★</div><span style="position:absolute;top:-8px;right:-8px;width:18px;height:18px;border-radius:50%;background:#C4A882;font-size:9px;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center;border:1.5px solid #fff;">${expectedSei}</span><span style="position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:10px;color:#333;background:rgba(255,255,255,.85);padding:1px 4px;border-radius:3px;pointer-events:none;">建议补点</span></div>`
 }
 
